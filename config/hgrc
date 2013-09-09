@@ -1,0 +1,27 @@
+[ui]
+username = Meador Inge <meadori@gmail.com>
+
+[diff]
+git = on
+showfunc = on
+
+[extensions]
+hgext.graphlog =
+hgext.purge = 
+hgk =
+color =
+pager =
+mq =
+
+[color]
+# These colors default to 'black', so override them.
+qseries.unapplied = magenta bold underline
+status.ignored = white bold
+
+[pager]
+# less -F: quit if one screen
+# less -S: chop long lines
+# less -R: raw (keep colors)
+# less -X: no init (don't see termcap init sequences)
+pager = LESS='FSRX' less
+

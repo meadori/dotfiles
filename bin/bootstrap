@@ -1,0 +1,52 @@
+#!/usr/bin/env python
+
+import argparse
+import sys
+import os
+import shutil
+
+def paths():
+    """Return all paths for which config directories may exist in.
+
+    """
+    # May be extended in the future.
+    return [os.path.join(os.getcwd(), "config")]
+
+def link(target, force=False):
+    """Link one config file target to the current user's home directory.
+
+    """
+    filename = os.path.basename(target)
+    link_name = os.path.join(os.path.expanduser('~'), "." + filename)
+    if os.path.exists(link_name) and not force:
+        print("skip: target link '%s' exists." % link_name)
+        print("      use '-f' to force link creation.")
+    else:
+        try:
+            os.remove(link_name)
+        except OSError:
+            shutil.rmtree(link_name)
+        os.symlink(target, link_name)
+
+def link_targets(paths, force):
+    """For each path in `paths' link every file under path to the
+       home directory.
+
+    """
+    for path in paths:
+        assert os.path.split(path)[1] == "config"
+        assert os.path.exists(path)
+        for file in os.listdir(path):
+            link(os.path.join(path, file), force)
+
+def main(argv):
+    """Main entry point."""
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-f', '--force', action='store_true',
+                        dest='force',  help='force link creation')
+    args = parser.parse_args()
+    link_targets(paths(), args.force)
+
+if __name__ == "__main__":
+    main(sys.argv)

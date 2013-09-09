@@ -1,0 +1,55 @@
+set nocompatible
+
+" Get rid of the stupid toolbar.
+if has('gui_running')
+  set guioptions-=T
+endif
+
+" Enable syntax coloring.
+syntax on
+
+" Setup up fancy colors.
+set background=dark
+colorscheme solarized
+
+" Automatically switch the current working directory
+" to the parent directory of the currently open file.
+set autochdir
+
+" Get the backup files out of the working directory.
+set backupdir=~/.vim/sessions
+set dir=~/.vim/sessions
+
+" A proper menu.
+set wildmode=longest,list,full
+set wildmenu
+
+" Enable the line+column ruler.
+set ruler
+
+" Enable the line number column.
+set number
+
+" Tab settings.
+set smarttab
+set tabstop=8
+
+" Make utf-8 the default encoding.
+set enc=utf-8
+
+" Handy shortcuts for switching between window splits.
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+"" Language-specific setup.
+
+" LLVM hacking setup.
+augroup filetype
+  au! BufRead,BufNewFile *.ll     set filetype=llvm
+augroup END
+
+augroup filetype
+  au! BufRead,BufNewFile *.td     set filetype=tablegen
+augroup END
