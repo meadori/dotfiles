@@ -1,4 +1,4 @@
-Config { font = "xft:Fixed-8"
+Config { font = "xft:monospace-8"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top
