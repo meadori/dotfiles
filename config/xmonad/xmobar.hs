@@ -14,6 +14,6 @@ Config { font = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %memory% * %swap% | %wlp3s0% | %battery% }{ <fc=#ee9a00>%date%</fc>| %uname%"
+       , template = "%StdinReader% }{ %cpu% | %memory% * %swap% | %wlp3s0% | %battery% <fc=#ee9a00>%date%</fc>| %uname%"
        }
 
