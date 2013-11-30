@@ -43,6 +43,9 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+" Enable filetype detection, plus loading of filetype plugins.
+filetype plugin on
+
 "" Language-specific setup.
 
 " LLVM hacking setup.
@@ -53,3 +56,7 @@ augroup END
 augroup filetype
   au! BufRead,BufNewFile *.td     set filetype=tablegen
 augroup END
+
+" Haskell hacking.
+au Bufenter *.hs compiler ghc
+let g:haddock_browser = "firefox"
