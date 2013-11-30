@@ -27,9 +27,6 @@ set wildmenu
 " Enable the line+column ruler.
 set ruler
 
-" Enable the line number column.
-set number
-
 " Tab settings.
 set smarttab
 set tabstop=8
