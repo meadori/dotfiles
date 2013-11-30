@@ -18,15 +18,17 @@ def link(target, force=False):
     """
     filename = os.path.basename(target)
     link_name = os.path.join(os.path.expanduser('~'), "." + filename)
-    if os.path.exists(link_name) and not force:
-        print("skip: target link '%s' exists." % link_name)
-        print("      use '-f' to force link creation.")
-    else:
-        try:
-            os.remove(link_name)
-        except OSError:
-            shutil.rmtree(link_name)
-        os.symlink(target, link_name)
+    if os.path.exists(link_name):
+        if not force:
+            print("skip: target link '%s' exists." % link_name)
+            print("      use '-f' to force link creation.")
+            return
+        else:
+            try:
+                os.remove(link_name)
+            except OSError:
+                shutil.rmtree(link_name)
+    os.symlink(target, link_name)
 
 def link_targets(paths, force):
     """For each path in `paths' link every file under path to the
