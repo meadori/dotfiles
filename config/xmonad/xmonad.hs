@@ -21,7 +21,7 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "xterm"
+myTerminal      = "urxvt"
 
 -- Whether focus follows the mouse pointer.
 --
@@ -186,7 +186,7 @@ myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full) ||| Full
 myManageHook = composeAll
     [ className =? "Firefox"    --> doShift "1:web"
     , className =? "Gvim"       --> doShift "2:code"
-    , className =? "XTerm"      --> doShift "2:code"]
+    , className =? "URxvt"      --> doShift "2:code"]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -211,8 +211,8 @@ myEventHook = mempty
 myStartupHook = do
                    spawn "firefox"
                    spawn "gvim"
-                   spawn "xterm"
-                   spawn "xterm"
+                   spawn "urxvt"
+                   spawn "urxvt"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
