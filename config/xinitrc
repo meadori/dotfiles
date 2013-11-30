@@ -1,0 +1,11 @@
+# Setup the cursor.
+xsetroot -cursor_name left_ptr
+
+# Use an English keyboard layout.
+setxkbmap -layout en
+
+# Merge in X resources modifications.
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+
+# Start xmonad.
+exec xmonad
