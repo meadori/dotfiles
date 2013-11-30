@@ -29,10 +29,10 @@ myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
 -- Color of current window title in xmobar.
-xmobarTitleColor = "#FFB6B0"
+xmobarTitleColor = "#D33682"
 
 -- Color of current workspace in xmobar.
-xmobarCurrentWorkspaceColor = "#CEFFAC"
+xmobarCurrentWorkspaceColor = "#2AA198"
 
 -- Width of the window border in pixels.
 --
@@ -48,8 +48,8 @@ myWorkspaces = ["1:web", "2:code", "3:irc", "4:mail"] ++ map show [4..9]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#303030"
-myFocusedBorderColor = "#00ff00"
+myNormalBorderColor  = "#93a1a1"
+myFocusedBorderColor = "#859900"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
