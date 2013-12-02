@@ -13,6 +13,7 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
+import XMonad.Actions.SpawnOn
 import XMonad.Util.Run(spawnPipe)
 import Data.Monoid
 import qualified XMonad.StackSet as W
@@ -185,8 +186,7 @@ myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full) ||| Full
 --
 myManageHook = composeAll
     [ className =? "Firefox"    --> doShift "1:web"
-    , className =? "Gvim"       --> doShift "2:code"
-    , className =? "URxvt"      --> doShift "2:code"]
+    , className =? "Chromium"   --> doShift "1:web"]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -209,10 +209,10 @@ myEventHook = mempty
 -- with mod-q.
 --
 myStartupHook = do
-                   spawn "firefox"
-                   spawn "gvim"
-                   spawn "urxvt"
-                   spawn "urxvt"
+                   spawnOn "1:web" "chromium"
+                   spawnOn "2:code" "urxvt"
+                   spawnOn "2:code" "urxvt"
+                   spawnOn "2:code" "urxvt -e vim"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -226,7 +226,7 @@ main = do
           , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor ""
           , ppSep = " "
       }
-      , manageHook = manageDocks <+> myManageHook
+      , manageHook = manageSpawn <+> manageDocks <+> myManageHook
   }
 
 -- A structure containing your configuration settings, overriding
