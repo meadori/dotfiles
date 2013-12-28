@@ -29,9 +29,9 @@ chatnets = {
 
 channels = (
   { name = "#python-dev"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#pypy"; chatnet = "Freenode"; autojoin = "yes"; }
-  { name = "#llvm"; chatnet = "OFTC"; autojoin = "yes"; },
-  { name = "#gcc"; chatnet = "OFTC"; autojoin = "yes"; }
+  { name = "#pypy"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#go-nuts"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#llvm"; chatnet = "OFTC"; autojoin = "yes"; }
 );
 
 aliases = {
